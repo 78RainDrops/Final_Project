@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<style>
+  /* Other styles */
+  .scrollable-content {
+      max-height: calc(100vh - 100px); /* Subtract navbar and footer height */
+      overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .reg{
+    padding-bottom: 90px;
+  }
+</style>
+<h2>Register</h2>
+  <div class="reg">
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'main:login' %}">Login here</a>.</p>
+  </div>
+  
+
+  
+{% endblock %}
